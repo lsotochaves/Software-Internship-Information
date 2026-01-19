@@ -32,55 +32,6 @@ When an object is created or **new** in C++, the system finds memory in the heap
 ### The Stack
 Operates by LIFO. When a function is called, the CPU moves the Stack Pointer and creates a new stack frame. This frame holds the function's local variables, arguments and return address. Once finished, the pointer moves back.
 
-## Sorting Algorithms
-
-Sorting is the process or arranging data into a specific order, typically numerical or alphabetical. It is the foundation of data efficiency.
-
-It is normally used as a preprocessing tool that makes other tasks faster.
-
-* Optimized Searching: Algorithms like **Binary Search** cannot be performed on unsorted data.
-* Identifying Relationships: Sorting brings identical or related data points together.
-
-There exist different sorting algorithms and they are useful on different scenarios.
-
-### Quick Sort
-It uses a pivot element to partition an array in two halves, to the left elements smaller thant the pivot and to the right, elements larger than the pivot. Then does this recursively until the array is sorted.
-
-* It provides a speed of O(nlogn)
-* It has low Spatial Complexity, therefore it is useful in scenarios where memory is limited.
-
-
-## Data Structures
-
-### Set vs Dictionary
-A **Set** in Python is architecturally identical to a **Dictionary** that contains only keys and no values. 
-* Both utilize a **Hash Table** for storage.
-* Both provide **O(1) average time complexity** for lookups, insertions, and deletions.
-* Sets are more memory-efficient when you only need to track the existence of unique items.
-
-### Trees
-
-Hierarchical structure in which each node has a value and pointers to **"children"**. 
-
-
-* It can point to **multiple** other nodes (unlike linked list).
-* A tree cannot go backwards, starts at root and keeps on expanding.
-
-
-```python
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-``` 
-
- 
-
-
-
-
-
 ---
 
 ## Time Complexity
@@ -133,4 +84,55 @@ They are both metrics used to evuluate an algorithm's performance.
 Imagine the algorithm must identify if values repeat in an array. The programmer could make that, for each number, it checks the array over and over again and compares ($O(n^2)$). However, spatially it consumes O(1) since it's tracking two variables all the time. Program is inefficient in time but it is efficient in memory.
 
 If the programmer instead added data to a set and checked if the number was already in the set, time complexity would be O(n) and spatial complexity would be O(n) too since it would have created a set that could potentially hold all elements in the array.
+
+---
+
+## Sorting Algorithms
+
+Sorting is the process or arranging data into a specific order, typically numerical or alphabetical. It is the foundation of data efficiency.
+
+It is normally used as a preprocessing tool that makes other tasks faster.
+
+* Optimized Searching: Algorithms like **Binary Search** cannot be performed on unsorted data.
+* Identifying Relationships: Sorting brings identical or related data points together.
+
+There exist different sorting algorithms and they are useful on different scenarios.
+
+### Quick Sort
+It uses a pivot element to partition an array in two halves, to the left elements smaller thant the pivot and to the right, elements larger than the pivot. Then does this recursively until the array is sorted.
+
+* It provides a speed of O(nlogn)
+* It has low Spatial Complexity, therefore it is useful in scenarios where memory is limited.
+
+
+## Data Structures
+
+### Set vs Dictionary
+A **Set** in Python is architecturally identical to a **Dictionary** that contains only keys and no values. 
+* Both utilize a **Hash Table** for storage.
+* Both provide **O(1) average time complexity** for lookups, insertions, and deletions.
+* Sets are more memory-efficient when you only need to track the existence of unique items.
+
+### Trees
+
+Hierarchical structure in which each node has a value and pointers to **"children"**. 
+
+
+* It can point to **multiple** other nodes (unlike linked list).
+* A tree cannot go backwards, starts at root and keeps on expanding.
+
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+``` 
+
+ 
+
+
+
+
 
