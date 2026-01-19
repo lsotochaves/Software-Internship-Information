@@ -101,9 +101,32 @@ There exist different sorting algorithms and they are useful on different scenar
 ### Quick Sort
 It uses a pivot element to partition an array in two halves, to the left elements smaller thant the pivot and to the right, elements larger than the pivot. Then does this recursively until the array is sorted.
 
-* It provides a speed of O(nlogn)
+* It provides a speed of O(n logn) but in worst case it is $O(n^2)$ when a bad pivot is chosen. 
 * It has low Spatial Complexity, therefore it is useful in scenarios where memory is limited.
+* Since it works with the original array it tends to have better cache locality.
 
+### Merge Sort
+
+The algorithm splits the array in half until each sub-array has one element and them merges them back in order.
+
+* Provides time complexity of O(n logn) for all cases.
+
+* It is useful when preserving the relative order of equal elements is necessary.
+
+* It can work with linked lists since it traverses the array using two pointers, one that points to next and another that moves twice as fast. When the second reaches the end of the list the first one is located at the middle. It is efficient with linked lists since sorting involves re positioning the pointers and not copying or shifting data. Even though it takes O(n) to reach the middle of the linked ist, time complexity is still O(n logn).
+
+* Eg: Sorting by last name where preserving first name is important.
+
+### Heap Sort
+
+Utilizes a Heap (ADD LATER) to find the maximum element in **O(log n)** time.
+
+The root node in a binary tree is grater than its children.
+
+An array is arranged into max-heap, then root of heap is swapped with the last element and heap size is reduced by 1, therefore eventually everything is sorted.
+
+* Runs in O(n logn) in all cases.
+* It can be used in systems where **predictable** execution time is important (quicksort runs slower at worst case). It is attractive for memory constrained environments, since it works over the original array and uses a small fixed number of variables, its **spatial complexity** is O(1), unlike [merge sort](#merge-sort) which requires  an auxiliary array of O(n).
 
 ## Data Structures
 
