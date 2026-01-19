@@ -79,13 +79,78 @@ Spatial (Space) Complexity measures the total extra memory an algorithm requires
 
 ## Relationship Between Spatial Complexity and Time Complexity
 
-They are both metrics used to evuluate an algorithm's performance.
+They are both metrics used to evaluate an algorithm's performance.
 
 Imagine the algorithm must identify if values repeat in an array. The programmer could make that, for each number, it checks the array over and over again and compares ($O(n^2)$). However, spatially it consumes O(1) since it's tracking two variables all the time. Program is inefficient in time but it is efficient in memory.
 
 If the programmer instead added data to a set and checked if the number was already in the set, time complexity would be O(n) and spatial complexity would be O(n) too since it would have created a set that could potentially hold all elements in the array.
 
 ---
+
+## Data Structures
+
+### Set vs Dictionary
+A **Set** in Python is architecturally identical to a **Dictionary** that contains only keys and no values. 
+* Both utilize a **Hash Table** for storage.
+* Both provide **O(1) average time complexity** for lookups, insertions, and deletions.
+* Sets are more memory-efficient when you only need to track the existence of unique items.
+
+
+### Trees
+
+Hierarchical structure in which each node has a value and pointers to **"children"**. 
+
+
+* It can point to **multiple** other nodes (unlike linked list).
+* A tree cannot go backwards, starts at root and keeps on expanding.`
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+``` 
+
+#### Terminology
+
+* **Edge**: Link between two nodes.
+* **Leaf**:: Node that has no children.
+* **Height**: Length of the longest path between a **node** and a **leaf**.
+* **Depth**: Length of the path from **root** to specific **node**.
+
+### Binary Tree
+
+Each node can have a **maximum** of two children (left child and right child).
+
+```python
+class BinaryTreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+```
+
+#### Binary Search Tree (BST)
+
+In a binary tree the **left node contains values less than the parent's value** while the **right node contains values higher than the parent's value**.
+
+#### Utility
+
+The utility of a BST comes from it being **balanced**. If numbers are inserted in order [1, 2, 3, 4, ...] the tree will be a straight line going to the right. That is a **degenerate tree**. In this state it becomes as slow as a linked list.
+
+A **balanced tree** means the height of the left and right subtrees of every node differs by no more than one. To fix this **self-balancing** is used, in which if new data comes in, if one side becomes loaded the tree performs a rotation (pointers are re-arrangement of its pointers). A **strictly balanced** tree is **faster** at searching data but **slower** at adding it or deleting it while a **Red-Black Tree** is more loose, hence **slower at searching but faster at inserting/deleting**.
+
+In most applications it seems like it is O(log n), **search later**.
+
+* **Searching items**: If a certain number is being searched, half of the data can be easily discarded in each pass. 
+* **Maintaining sorted data**: In an array, if a number must be inserted and the array must be ordered, every single element needs to be shifted. In a BST, the tree is traversed until a **leaf** is found and the data is added there.
+* **Efficient range queries**: Imagine all values between an specified range (50k-70k), only the nodes that fall between these range are analyzed (no need to analyze every single node).
+
+
+
+
+
 
 ## Sorting Algorithms
 
@@ -128,30 +193,7 @@ An array is arranged into max-heap, then root of heap is swapped with the last e
 * Runs in O(n logn) in all cases.
 * It can be used in systems where **predictable** execution time is important (quicksort runs slower at worst case). It is attractive for memory constrained environments, since it works over the original array and uses a small fixed number of variables, its **spatial complexity** is O(1), unlike [merge sort](#merge-sort) which requires  an auxiliary array of O(n).
 
-## Data Structures
 
-### Set vs Dictionary
-A **Set** in Python is architecturally identical to a **Dictionary** that contains only keys and no values. 
-* Both utilize a **Hash Table** for storage.
-* Both provide **O(1) average time complexity** for lookups, insertions, and deletions.
-* Sets are more memory-efficient when you only need to track the existence of unique items.
-
-### Trees
-
-Hierarchical structure in which each node has a value and pointers to **"children"**. 
-
-
-* It can point to **multiple** other nodes (unlike linked list).
-* A tree cannot go backwards, starts at root and keeps on expanding.
-
-
-```python
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-``` 
 
  
 
